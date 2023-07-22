@@ -104,14 +104,13 @@ export default function Item(props) {
         [styles.itemNoCarrinho]: cart,
       })}
     >
-      {novo ||
-        (cart && (
-          <AiFillCloseCircle
-            {...iconeProps}
-            className={`${styles.acao} ${styles["item-deletar"]}`}
-            onClick={handleDeleteItem}
-          />
-        ))}
+      {(novo || cart) && (
+        <AiFillCloseCircle
+          {...iconeProps}
+          className={`${styles.acao} ${styles["item-deletar"]}`}
+          onClick={handleDeleteItem}
+        />
+      )}
       <div className={styles.imagem}>
         <img src={foto} alt={titulo} />
       </div>
