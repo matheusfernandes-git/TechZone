@@ -1,0 +1,67 @@
+@import 'styles/breakpoints';
+
+.header {
+  display: grid;
+  width: 100%;
+  grid-template-areas: 'texto imagem';
+  grid-template-columns: 1fr 2fr;
+  justify-content: space-between;
+  @media(max-width: $tablet) {
+    gap: 20px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'texto' 'imagem';
+    text-align: center;
+  }
+  @media(max-width: $mobile-sm){
+    width: 100%;
+  }
+  &-texto {
+    color: white;
+    grid-area: texto;
+    }
+    h1 {
+      font-size: 60px;
+    }
+    h2 {
+      font-size: 25px;
+      padding-bottom: 10px;
+    }
+    @media(max-width: 768px){
+      h1{
+        font-size: 2.6em;
+      }
+      h2{
+        font-size: 1.3em;
+      }
+    }
+  &-button {
+    display: flex;
+    @media(max-width: $tablet) {
+      justify-content: center;
+    }
+  }
+  &-imagem {
+    align-self: center;
+    grid-area: imagem;
+    justify-self: center;
+    overflow: hidden;
+    max-width: 700px;
+    img {
+      border-radius: 144px;
+      width: 100%;
+    }
+    @media(max-width: $tablet){
+      max-width: 600px;
+    }
+  }
+}
+
+.homeHeader {
+  width: 1580px;
+}
+@media(max-width: $mobile-sm){
+  .homeHeader{
+    width: 100%;
+  }
+}

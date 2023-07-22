@@ -1,0 +1,28 @@
+@import 'styles/breakpoints';
+
+.headerHome {
+  background-image: url('/assets/fundo1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px 120px 138px 100px;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  @media(max-width: $tablet){
+    padding: 150px 50px 70px 50px;
+  }
+  @media(max-width: $mobile-sm) {
+    display: block;
+    padding: 150px 50px 50px 50px;
+  }
+}
+
+.header{
+  background-image: url('/assets/fundo1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px 120px 138px 100px;
+  @media(max-width: $mobile-sm) {
+    padding: 160px 50px 70px 50px;
+  }
+}

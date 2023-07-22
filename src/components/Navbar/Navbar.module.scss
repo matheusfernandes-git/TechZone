@@ -1,0 +1,287 @@
+@import 'styles/breakpoints';
+
+.logo {
+  cursor: pointer;
+}
+.selected {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.containerBurguer{
+  margin-top: 4px;
+}
+
+.menuIcons{
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.link {
+  text-decoration: none;
+  background-color: #111111;
+  color: #f5f5f5;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  width: 100%;
+  padding: 13px 0px 13px 18px;
+}
+
+.homeNav{
+  align-items: center;
+  position: fixed;
+  display: flex;
+  height: 100px;
+  padding: 0 120px;
+  width: 100vw;
+  background-color: #040300;
+  .burguer, .menuBars{
+    display: none;
+  }
+  .menuItems{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    list-style: none;
+  }
+  .menuIcons{
+    display: none;
+  }
+  .link {
+    display: flex;
+    background-color: #000;
+    margin-right: 15px;
+    font-size: 21px;
+  }
+  .busca {
+    display: none;
+  }
+  .icones{
+    position: absolute;
+    top: 37%;
+    right: 10%;
+  }
+  @media (max-width: $tablet-2) {
+    z-index: 1;
+    .containerLogo{
+      z-index: 100;
+      position: absolute;
+      left: 85px;
+    }
+    .containerBurguer{
+      margin-left: 180px;
+      .burguer{
+        display: flex;
+      }
+    }
+    .menuBars{
+      display: flex;
+      margin-left: 40px;
+      margin-top: 20px;
+    }
+    .navMenu{
+      z-index: 1;
+      position: absolute; 
+      top: 0;
+      left: -100%;   
+      transition: 850ms;
+    }
+    .menuActive {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0%;
+      transition: 350ms;
+    }
+    .menuItems{
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      width: 400px;
+      justify-content: start;
+      height: 100vh;   
+      background-color: #040300;  
+    }
+    .menuIcons{
+      display: flex;
+    }
+    .links{
+      display: flex;
+      align-items: center;
+      list-style: none;
+      height: 60px;
+    }
+    .link {
+      background-color: #111111;
+      font-size: 19px;
+    }
+    .navbarToggle {
+      height: 80px;
+      display: flex;
+      justify-content: end;
+      margin-right: 20px;
+      align-items: center;
+    }
+    .containerIcones{
+      display: flex;
+      flex: 1;
+    }
+  }
+  @media (max-width: $mobile-sm) {
+    .containerLogo{
+      position: absolute;
+      left: 0px;
+      margin-left: 20px;
+      .logo{
+        width: 170px;
+      }
+    }
+    .containerBurguer{
+      margin-left: 75px;
+    }
+    .menuItems{
+      width: 100vw;
+    }
+    .links{
+      margin-right: 20px;
+    }
+    .menuBars{
+      margin-right: 20px;
+    }
+    .icones{
+      right: 6%;
+    }
+  }
+}
+
+.nav{
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  height: 100px;
+  padding: 0 120px;
+  width: 100vw;
+  background-color: #040300;
+  .containerLogo{
+    z-index: 100;
+    position: absolute;
+    left: 85px;
+  }
+  .containerBurguer{
+    margin-top: 4px;
+    margin-left: 175px;
+  }
+  .burguer{
+    display: flex;
+    margin: auto;
+  }
+  .menuBars{
+    display: flex;
+    margin-left: 40px;
+    margin-top: 20px;
+  }
+  .navMenu{
+    z-index: 1;
+    position: fixed; 
+    top: 0;
+    left: -100%;
+    transition: 850ms;    
+  }
+  .menuActive {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0%;
+    transition: 350ms;
+  }
+  .menuItems{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    top: 0;
+    width: 400px;
+    height: 100vh;   
+    background-color: #040300;  
+  }
+  .links{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 60px;
+  }
+  .link {
+    font-size: 19px;
+    margin-right: 18px;
+  }
+  .navbarToggle {
+    height: 80px;
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+    align-items: center;
+  }
+  .containerIcones{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex: 1;
+  }
+  .busca{
+    margin-left: auto;
+    width: 450px;
+  }
+  .icones {
+    margin-left: 20px;
+  }
+  @media(max-width: $tablet){
+    .containerLogo {
+      left: 50px;
+    }
+    .containerBurguer{
+      margin: 3px 30px 0px 140px;
+    }
+    .navMenu{
+      width: 100%; 
+    }
+    .menuActive {
+      width: 100%;
+    }
+    .menuItems{
+      width: 360px;
+      height: 100vh;   
+    }
+     .busca {
+        align-items: center;
+        display: flex;
+        width: 100%;
+     }
+    .icones {
+      display: flex;
+      margin-right: -50px;
+    }
+  }
+  @media (max-width: $mobile-sm) {
+    .containerLogo{
+      left: 20px;
+    }
+    .containerBurguer{
+      margin-left: 8px;
+    }
+    .menuBars{
+      margin-right: 20px;
+    }
+    .link{
+      margin-right: 39px;
+    }
+    .menuItems{
+      width: 100%;
+    }
+    .icones{
+      margin-right: -90px;
+    }
+  }  
+}
+

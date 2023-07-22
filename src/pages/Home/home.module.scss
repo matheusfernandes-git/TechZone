@@ -1,0 +1,14 @@
+@import 'styles/breakpoints';
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media(max-width: $tablet){
+  .header{
+    padding-top: 15px;
+    flex-direction: column;
+  }
+}

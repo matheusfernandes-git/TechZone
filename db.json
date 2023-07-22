@@ -1,0 +1,392 @@
+{
+  "categorias": [
+    {
+      "nome": "Consoles",
+      "to": "/consoles",
+      "header": "/assets/categorias/header/console.jpg",
+      "id": "consoles",
+      "descricao": "Explore uma coleção diversificada de consoles de todas as épocas, desde os clássicos retro até os mais recentes lançamentos."
+    }, {
+      "nome": "Periféricos",
+      "to": "/perifericos",
+      "header": "/assets/categorias/header/perifericos.jpg",
+      "id": "perifericos",
+      "descricao": "Encontre teclados, mouses, headsets, controles e outros acessórios projetados para oferecer precisão, conforto e imersão."
+    }, {
+      "nome": "Jogos",
+      "to": "/jogos",
+      "header": "/assets/categorias/header/jogos.png",
+      "id": "jogos",
+      "descricao": "Encontre os últimos lançamentos, clássicos atemporais e títulos populares em uma ampla variedade de gêneros."
+    }, {
+      "nome": "Mesas e Cadeiras",
+      "to": "/cadeiras",
+      "header": "/assets/categorias/header/escritorio.png",
+      "id": "escritorio",
+      "descricao": "Encontre todos os tipos de cadeiras e mesas para seu ambiente gamer."
+    }, {
+      "nome": "Computadores",
+      "to": "/computadores",
+      "header": "/assets/categorias/header/computadores.jpg",
+      "id": "computadores",
+      "descricao": "Encontre placas de vídeo, processadores, memórias RAM, discos rígidos, gabinetes e muito mais."
+    }
+  ],
+  "itens": [
+    {
+      "id": 1,
+      "titulo": "Playstation 5 Sony, 825GB, 1 Controle, Branco",
+      "foto": "/assets/itens/console1.png",
+      "favorito": false,
+      "preco": 4049.20,
+      "categoria": "consoles"
+    }, {
+      "id": 2,
+      "titulo": "Console Microsoft Xbox Series X, 1TB, Preto",
+      "foto": "/assets/itens/console2.png",
+      "favorito": false,
+      "preco": 4799.99,
+      "categoria": "consoles"
+    }, {
+      "id": 3,
+      "titulo": "Playstation 4 Sony, 512GB, 2 controles, Preto",
+      "foto": "/assets/itens/console3.png",
+      "favorito": false,
+      "preco": 2249.99,
+      "categoria": "consoles"
+    }, {
+      "id": 4,
+      "titulo": "Xbox Series S 512GB, 1 controle, Branco",
+      "foto": "/assets/itens/console4.png",
+      "favorito": false,
+      "preco": 2179.99,
+      "categoria": "consoles"
+    },
+    {
+      "id": 5,
+      "titulo": "Microsoft Xbox 360 E 500gb 2 Controles Standard Cor Preto",
+      "foto": "/assets/itens/console5.png",
+      "favorito": false,
+      "preco": 1180.90,
+      "categoria": "consoles"
+    },
+    {
+      "id": 6,
+      "titulo": "Playstation 3 Sony, Super Slim, 500gb, Preto",
+      "foto": "/assets/itens/console6.png",
+      "favorito": false,
+      "preco": 850.50,
+      "categoria": "consoles"
+    },
+    {
+      "id": 7,
+      "titulo": "Playstation 2 Sony, Slim, Standard, 1 controle, Preto",
+      "foto": "/assets/itens/console7.png",
+      "favorito": false,
+      "preco": 670.50,
+      "categoria": "consoles"
+    }, {
+      "id": 8,
+      "titulo": "Mouse Gamer Razer Viper Mini, Chroma, Optical Switch, 6 Botões, 8500DPI ",
+      "foto": "/assets/itens/mouse1.jpg",
+      "favorito": false,
+      "preco": 200,
+      "categoria": "perifericos"
+    }, {
+      "id": 9,
+      "titulo": "Controle para Xbox Series X - Xbox Series S - Xbox One X sem Fio",
+      "foto": "/assets/itens/controle1.png",
+      "favorito": false,
+      "preco": 378.00,
+      "categoria": "perifericos"
+    }, {
+      "id": 10,
+      "titulo": "Fone Gamer Razer Kraken X USB 7.1 Surround Preto",
+      "foto": "/assets/itens/headset1.png",
+      "favorito": false,
+      "preco": 449.00,
+      "categoria": "perifericos"
+    }, {
+      "id": 11,
+      "titulo": "Teclado Mecânico Gamer Razer BlackWidow Chroma",
+      "foto": "/assets/itens/teclado1.png",
+      "favorito": false,
+      "preco": 1120.00,
+      "categoria": "perifericos"
+    }, {
+      "id": 13,
+      "titulo": "Mousepad Gamer Husky Black Avalanche Speed Extra Grande",
+      "foto": "/assets/itens/mousepad1.png",
+      "favorito": false,
+      "preco": 75.90,
+      "categoria": "perifericos"
+    }, {
+      "id": 14,
+      "titulo": "Mousepad Gamer Razer Firefly V2 Chroma Médio, Preto, 10,84 x 13,99 x 0,14",
+      "foto": "/assets/itens/mousepad2.png",
+      "favorito": false,
+      "preco": 476.90,
+      "categoria": "perifericos"
+    }, {
+      "id": 15,
+      "titulo": "Mouse Logitech, G903 Optico Sem Fio Gamer Lightspeed, Preto, 16000DPI, 11 Botões",
+      "foto": "/assets/itens/mouse2.jpg",
+      "favorito": false,
+      "preco": 775.80,
+      "categoria": "perifericos"
+    }, {
+      "id": 16,
+      "titulo": "Teclado Óptico-mecânico Gamer Razer Huntsman Mini, Chroma, Switch Red ",
+      "foto": "/assets/itens/teclado2.png",
+      "favorito": false,
+      "preco": 820.30,
+      "categoria": "perifericos"
+    }, {
+      "id": 17,
+      "titulo": "Headset Sem Fio Gamer HyperX Cloud Flight, Drivers 50mm, LED, Múltiplas Plataformas",
+      "foto": "/assets/itens/headset2.png",
+      "favorito": false,
+      "preco": 502.90,
+      "categoria": "perifericos"
+    }, {
+      "id": 18,
+      "titulo": "Controle Sony Dualshock 4 PS4, Sem Fio, Preto",
+      "foto": "/assets/itens/controle2.png",
+      "favorito": false,
+      "preco": 260.50,
+      "categoria": "perifericos"
+    }, {
+      "id": 19,
+      "titulo": "Jogo Marvels Spider-Man GOTY Edition para PS4 - Insomniac Games",
+      "foto": "/assets/itens/jogo-1.png",
+      "favorito": false,
+      "preco": 167.90,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 20,
+      "titulo": "GTA V para PS5 Rockstar Games",
+      "foto": "/assets/itens/jogo-2.png",
+      "favorito": false,
+      "preco": 140.50,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 21,
+      "titulo": "God of War para PS4 - Santa Monica Studio",
+      "foto": "/assets/itens/jogo-4.png",
+      "favorito": false,
+      "preco": 90,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 22,
+      "titulo": "God of War Ragnarok para PS5 - Santa Monica Studio",
+      "foto": "/assets/itens/jogo-5.png",
+      "favorito": false,
+      "preco": 320.50,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 23,
+      "titulo": "Jogo Minecraft Xbox 360 - Mídia Física",
+      "foto": "/assets/itens/jogo-6.png",
+      "favorito": false,
+      "preco": 228.90,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 24,
+      "titulo": "Pro Evolution Soccer 12 - PES 2012 - Xbox 360 - Konami",
+      "foto": "/assets/itens/jogo-7.png",
+      "favorito": false,
+      "preco": 96.60,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 25,
+      "titulo": "Jogo Red Dead Redemption 2 - Xbox One - Rockstar Games",
+      "foto": "/assets/itens/jogo-8.png",
+      "favorito": false,
+      "preco": 250.90,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 26,
+      "titulo": "Grand Theft Auto San Andreas (GTA) PS2 - Rock Star Games",
+      "foto": "/assets/itens/jogo-9.png",
+      "favorito": false,
+      "preco": 180.90,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 27,
+      "titulo": "FIFA 23 para XBOX Series X EA",
+      "foto": "/assets/itens/jogo-10.png",
+      "favorito": false,
+      "preco": 310.90,
+      "categoria": "jogos"
+    }, {
+    }, {
+      "id": 28,
+      "titulo": "FIFA 23 para PS5 EA",
+      "foto": "/assets/itens/jogo-11.png",
+      "favorito": false,
+      "preco": 310.90,
+      "categoria": "jogos"
+    }, {
+      "id": 29,
+      "titulo": "Placa de Vídeo Asus NVIDIA GeForce RTX 2060, 12GB GDDR6, 128 Bits ",
+      "foto": "/assets/itens/placa2.png",
+      "favorito": false,
+      "preco": 4800.20,
+      "categoria": "computadores"
+    }, {
+      "id": 30,
+      "titulo": "Placa de Vídeo GTX 1660 Super OC Gigabyte NVIDIA Geforce, 6GB GDDR6",
+      "foto": "/assets/itens/placa3.png",
+      "favorito": false,
+      "preco": 1560.40,
+      "categoria": "computadores"
+    }, {
+      "id": 31,
+      "titulo": "Processador gamer Intel Core i7-7700 CM8067702868314 de 4 núcleos e 4.2GHz de frequência",
+      "foto": "/assets/itens/processador1.png",
+      "favorito": false,
+      "preco": 730.22,
+      "categoria": "computadores"
+    }, {
+      "id": 32,
+      "titulo": "Processador Ryzen 7 3800XT AM4 3.9GHz - AMD",
+      "foto": "/assets/itens/processador2.png",
+      "favorito": false,
+      "preco": 2659.90,
+      "categoria": "computadores"
+    }, {
+      "id": 33,
+      "titulo": "Memória HyperX Fury de 8GB DIMM DDR4 2400Mhz",
+      "foto": "/assets/itens/ram1.png",
+      "favorito": false,
+      "preco": 160,
+      "categoria": "computadores"
+    }, {
+      "id": 34,
+      "titulo": "Memória Ram 16gb (2x8gb) Asgard Loki W2 Rgb 3200mhz Cl16 Ddr4h",
+      "foto": "/assets/itens/ram2.png",
+      "favorito": false,
+      "preco": 282.90,
+      "categoria": "computadores"
+    }, {
+      "id": 35,
+      "titulo": "Gabinete Gamer Mid Tower RGB BOLT",
+      "foto": "/assets/itens/gabinete1.png",
+      "favorito": false,
+      "preco": 303.60,
+      "categoria": "computadores"
+    },
+    {
+      "id": 36,
+      "titulo": "Placa-Mãe Gigabyte B450M DS3H AMD AM4 mATX DDR4",
+      "foto": "/assets/itens/placaMae1.png",
+      "favorito": false,
+      "preco": 650.20,
+      "categoria": "computadores"
+    },
+    {
+      "id": 37,
+      "titulo": "Gabinete Gamer Mid Tower Black Hawk RGB Fortrek",
+      "foto": "/assets/itens/gabinete2.png",
+      "favorito": false,
+      "preco": 333.20,
+      "categoria": "computadores"
+    }
+    , {
+      "id": 38,
+      "titulo": "Placa-Mãe Gigabyte B450M DS3H AMD AM4 mATX DDR4",
+      "foto": "/assets/itens/placaMae2.png",
+      "favorito": false,
+      "preco": 699.90,
+      "categoria": "computadores"
+    }
+    , {
+      "id": 39,
+      "titulo": "HD Seagate 1TB BarraCuda, 3.5', SATA",
+      "foto": "/assets/itens/hd.png",
+      "favorito": false,
+      "preco": 260.45,
+      "categoria": "computadores"
+    }
+    , {
+      "id": 40,
+      "titulo": "Mesa Gamer Mancer Wicca, RGB, Preto,",
+      "foto": "/assets/itens/mesa1.png",
+      "favorito": false,
+      "preco": 512.43,
+      "categoria": "escritorio"
+    }
+    , {
+      "id": 41,
+      "titulo": "Mesa para escritório, Madeira, Pernas de ferro",
+      "foto": "/assets/itens/mesa2.png",
+      "favorito": false,
+      "preco": 302.43,
+      "categoria": "escritorio"
+    }
+    , {
+      "id": 42,
+      "titulo": "Mesa Gamer TGT Urutu, Preto e Vermelho",
+      "foto": "/assets/itens/mesa3.png",
+      "favorito": false,
+      "preco": 630.20,
+      "categoria": "escritorio"
+    }
+    , {
+      "id": 43,
+      "titulo": "Mesa Para Escritório De Canto, 2 Gavetas, Preto ",
+      "foto": "/assets/itens/mesa4.png",
+      "favorito": false,
+      "preco": 380.20,
+      "categoria": "escritorio"
+    }
+    , {
+      "id": 44,
+      "titulo": "Cadeira de Escritório Presidente Ergonomica ANM",
+      "foto": "/assets/itens/cadeira1.png",
+      "favorito": false,
+      "preco": 765.40,
+      "categoria": "escritorio"
+    }
+    , {
+      "id": 45,
+      "titulo": "Cadeira de Escritório Presidente MB-C730 Travel Max",
+      "foto": "/assets/itens/cadeira2.png",
+      "favorito": false,
+      "preco": 478.20,
+      "categoria": "escritorio"
+    }
+    , {
+      "id": 46,
+      "titulo": "Cadeira Gamer Reclinável TGC12 ThunderX3",
+      "foto": "/assets/itens/cadeira3.png",
+      "favorito": false,
+      "preco": 1080.60,
+      "categoria": "escritorio"
+    }
+    , {
+      "id": 47,
+      "titulo": "Cadeira Gamer Reclinável TGC12 ThunderX3",
+      "foto": "/assets/itens/cadeira4.png",
+      "favorito": false,
+      "preco": 1080.60,
+      "categoria": "escritorio"
+    }
+    , {
+      "id": 48,
+      "titulo": "Cadeira Gamer Reclinável Mad Racer V8 Turbo PCYes",
+      "foto": "/assets/itens/cadeira5.png",
+      "favorito": false,
+      "preco": 1230.60,
+      "categoria": "escritorio"
+    }
+  ]
+}
