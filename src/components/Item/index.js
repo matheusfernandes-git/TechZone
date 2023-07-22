@@ -7,7 +7,6 @@ import {
   AiOutlineCheck,
   AiFillEdit,
   AiFillCloseCircle,
-  AiOutlineDelete,
 } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { changeFavorite, changeItem, deleteItem } from "store/reducers/items";
@@ -29,17 +28,16 @@ const amountProps = {
 
 export default function Item(props) {
   console.log("Item Props:", props);
-  const { titulo, foto, preco, favorito, id, cart, amount, novo, updateCart } =
+  const { titulo, foto, preco, favorito, id, cart, amount, novo } =
     props;
-  const precoValue = preco || 0;
-  console.log("titulo:", titulo);
-  console.log("foto:", foto);
-  console.log("preco:", preco);
-  console.log("favorito:", favorito);
-  console.log("id:", id);
-  console.log("cart:", cart);
-  console.log("amount:", amount);
-  console.log("novo:", novo);
+  // console.log("titulo:", titulo);
+  // console.log("foto:", foto);
+  // console.log("preco:", preco);
+  // console.log("favorito:", favorito);
+  // console.log("id:", id);
+  // console.log("cart:", cart);
+  // console.log("amount:", amount);
+  // console.log("novo:", novo);
   const [editMode, setEditMode] = useState(false);
   const [newTitle, setNewTitle] = useState(titulo);
   const dispatch = useDispatch();
@@ -67,9 +65,6 @@ export default function Item(props) {
 
   const handleDeleteItem = () => {
     dispatch(deleteItem(id));
-    if (cart) {
-      updateCart(cart.filter((item) => item.id !== id));
-    }
   };
 
   const editModeComponent = (
@@ -126,7 +121,7 @@ export default function Item(props) {
           )}
         </div>
         <div className={styles.info}>
-          <div className={styles.preco}>R$ ${precoValue.toFixed(2)}</div>
+          <div className={styles.preco}>R$ ${preco.toFixed(2)}</div>
           <div className={styles.acoes}>
             <div className={styles.item_favorite}>
               {favorito ? (

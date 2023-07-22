@@ -82,11 +82,6 @@ export default function Cart() {
     setSelectedPaymentOption(event.target.value);
   };
 
-  const handleDeleteItem = (itemId) => {
-    dispatch(deleteItem(itemId));
-    const updateCart = cart.filter((item) => item.id !== itemId);
-  };
-
   const divisionOptions = [
     {
       option: `À vista - R$ ${totalFrete.toFixed(2)}`,
@@ -407,7 +402,6 @@ export default function Cart() {
                 key={item.id}
                 {...item}
                 cart
-                onDelete={() => handleDeleteItem(item.id)}
               />
             ))}
             <div className={styles.total}>
