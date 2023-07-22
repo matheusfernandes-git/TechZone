@@ -8,6 +8,7 @@ import { addNewItem } from "store/reducers/items";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "components/Input";
 import { useState } from "react";
+import useFetchData from "services/useFecthData";
 
 export default function Advertise() {
   const dispatch = useDispatch();
@@ -18,7 +19,10 @@ export default function Advertise() {
   const categories = useSelector((state) =>
     state.categories.map(({ nome, id }) => ({ nome, id }))
   );
-  const { register, handleSubmit, formState, reset } = useForm({
+
+  // useFetchData();
+
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     defaultValues: {
       categoria: categoryName,
     },
@@ -36,8 +40,6 @@ export default function Advertise() {
     setShowSuccessMsg(false);
     setRegisterBtn(true);
   };
-
-  const { errors } = formState;
 
   const showh2Component = (
     <>

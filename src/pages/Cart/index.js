@@ -2,10 +2,9 @@ import Header from "components/Header";
 import styles from "./Cart.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import Item from "components/Item";
-import { resetCart } from "store/reducers/cart";
+import { changeCart, resetCart } from "store/reducers/cart";
 import { useState } from "react";
 import { AiOutlineClockCircle } from "react-icons/ai";
-import { BsCreditCard } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { TfiMoney } from "react-icons/tfi";
 import { GoLocation } from "react-icons/go";
@@ -13,6 +12,8 @@ import Button from "components/Button";
 import Input from "components/Input";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import useFetchData from "services/useFecthData";
+import { deleteItem } from "store/reducers/items";
 
 const iconsProps = {
   color: "#FF6500",
@@ -47,7 +48,22 @@ export default function Cart() {
       totalFrete: total + frete,
     };
   });
-  const { register, handleSubmit, formState, reset } = useForm({});
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({});
+
+  useFetchData();
+
+  const updateCartLocalStorage = (cartItems) => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  };
+
+  const handleUpdateCart = (updatedCart) => {
+    dispatch(changeCart(updatedCart));
+  };
 
   const handleFormsSubmit = (data) => {
     if (!data.paymentOption) {
@@ -59,10 +75,16 @@ export default function Cart() {
     dispatch(resetCart());
     setCompleted(!completed);
     reset();
+    updateCartLocalStorage([]);
   };
 
   const handlePaymentOptionChange = (event) => {
     setSelectedPaymentOption(event.target.value);
+  };
+
+  const handleDeleteItem = (itemId) => {
+    dispatch(deleteItem(itemId));
+    const updateCart = cart.filter((item) => item.id !== itemId);
   };
 
   const divisionOptions = [
@@ -99,8 +121,6 @@ export default function Cart() {
       id: 8,
     },
   ];
-
-  const { errors } = formState;
 
   return (
     <>
@@ -382,7 +402,13 @@ export default function Cart() {
         {!completed && cart.length > 0 && (
           <div className={styles.carrinho}>
             {cart.map((item) => (
-              <Item key={item.id} {...item} cart />
+              <Item
+                updateCart={handleUpdateCart}
+                key={item.id}
+                {...item}
+                cart
+                onDelete={() => handleDeleteItem(item.id)}
+              />
             ))}
             <div className={styles.total}>
               <strong className={styles.totalTitulo}>Resumo da compra</strong>

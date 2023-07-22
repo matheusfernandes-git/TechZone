@@ -7,6 +7,7 @@ import {
   AiOutlineCheck,
   AiFillEdit,
   AiFillCloseCircle,
+  AiOutlineDelete,
 } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { changeFavorite, changeItem, deleteItem } from "store/reducers/items";
@@ -27,7 +28,18 @@ const amountProps = {
 };
 
 export default function Item(props) {
-  const { titulo, foto, preco, favorito, id, cart, amount, novo } = props;
+  console.log("Item Props:", props);
+  const { titulo, foto, preco, favorito, id, cart, amount, novo, updateCart } =
+    props;
+  const precoValue = preco || 0;
+  console.log("titulo:", titulo);
+  console.log("foto:", foto);
+  console.log("preco:", preco);
+  console.log("favorito:", favorito);
+  console.log("id:", id);
+  console.log("cart:", cart);
+  console.log("amount:", amount);
+  console.log("novo:", novo);
   const [editMode, setEditMode] = useState(false);
   const [newTitle, setNewTitle] = useState(titulo);
   const dispatch = useDispatch();
@@ -43,8 +55,21 @@ export default function Item(props) {
     dispatch(changeCart(id));
   };
 
+  const handleDecrement = () => {
+    if (amount >= 1) {
+      dispatch(changeAmount({ id, amount: -1 }));
+    }
+  };
+
+  const handleIncrement = () => {
+    dispatch(changeAmount({ id, amount: +1 }));
+  };
+
   const handleDeleteItem = () => {
     dispatch(deleteItem(id));
+    if (cart) {
+      updateCart(cart.filter((item) => item.id !== id));
+    }
   };
 
   const editModeComponent = (
@@ -79,13 +104,14 @@ export default function Item(props) {
         [styles.itemNoCarrinho]: cart,
       })}
     >
-      {(novo || cart) && (
-        <AiFillCloseCircle
-          {...iconeProps}
-          className={`${styles.acao} ${styles["item-deletar"]}`}
-          onClick={handleDeleteItem}
-        />
-      )}
+      {novo ||
+        (cart && (
+          <AiFillCloseCircle
+            {...iconeProps}
+            className={`${styles.acao} ${styles["item-deletar"]}`}
+            onClick={handleDeleteItem}
+          />
+        ))}
       <div className={styles.imagem}>
         <img src={foto} alt={titulo} />
       </div>
@@ -101,7 +127,7 @@ export default function Item(props) {
           )}
         </div>
         <div className={styles.info}>
-          <div className={styles.preco}>R$ ${preco.toFixed(2)}</div>
+          <div className={styles.preco}>R$ ${precoValue.toFixed(2)}</div>
           <div className={styles.acoes}>
             <div className={styles.item_favorite}>
               {favorito ? (
@@ -121,19 +147,9 @@ export default function Item(props) {
             </div>
             {cart ? (
               <div className={styles.quantidade}>
-                <AiFillMinusCircle
-                  {...amountProps}
-                  onClick={() => {
-                    if (amount >= 1) {
-                      dispatch(changeAmount({ id, amount: -1 }));
-                    }
-                  }}
-                />
+                <AiFillMinusCircle {...amountProps} onClick={handleDecrement} />
                 <span>{String(amount || 0).padStart(2, "0")}</span>
-                <AiFillPlusCircle
-                  {...amountProps}
-                  onClick={() => dispatch(changeAmount({ id, amount: +1 }))}
-                />
+                <AiFillPlusCircle {...amountProps} onClick={handleIncrement} />
               </div>
             ) : (
               <>

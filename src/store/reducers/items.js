@@ -7,9 +7,11 @@ export const searchItems = createAsyncThunk(
   itemsService.search
 );
 
+const initialState = [];
+
 const itemsSlice = createSlice({
   name: "items",
-  initialState: [],
+  initialState,
   reducers: {
     changeFavorite: (state, { payload }) => {
       state.map((item) => {
@@ -19,15 +21,16 @@ const itemsSlice = createSlice({
     },
     addNewItem: (state, { payload }) => {
       state.push({ ...payload, id: uuid() });
+      console.log(payload);
+    },
+    deleteItem: (state, { payload }) => {
+      const index = state.findIndex((item) => item.id === payload);
+      state.splice(index, 1);
     },
     changeItem: (state, { payload }) => {
       state.map((item) => {
         if (item.id === payload.id) item.titulo = payload.item.title;
       });
-    },
-    deleteItem: (state, { payload }) => {
-      const index = state.findIndex((item) => item.id === payload);
-      state.splice(index, 1);
     },
   },
   extraReducers: (builder) => {

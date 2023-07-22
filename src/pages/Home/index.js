@@ -2,22 +2,12 @@ import Header from "components/Header";
 import styles from "./home.module.scss";
 import watch from "assets/gamer1.jpg";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import Button from "components/Button";
-import { useEffect } from "react";
-import { searchCategories } from "store/reducers/categories";
-import { searchItems } from "store/reducers/items";
+import useFetchData from "services/useFecthData";
 
 export default function Home() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(searchCategories());
-    dispatch(searchItems());
-    searchItems();
-  }, [dispatch, searchItems]);
-
+  useFetchData();
   return (
     <div>
       <Header
@@ -28,7 +18,6 @@ export default function Home() {
       >
         <Button onClick={() => navigate("/anuncie")}>Quero Anunciar</Button>
       </Header>
-
     </div>
   );
 }
