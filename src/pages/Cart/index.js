@@ -13,7 +13,6 @@ import Input from "components/Input";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import useFetchData from "services/useFecthData";
-import { deleteItem } from "store/reducers/items";
 
 const iconsProps = {
   color: "#FF6500",

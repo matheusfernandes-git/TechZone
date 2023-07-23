@@ -41,11 +41,11 @@ export default function Navbar() {
           <div className={styles.containerLogo}>
             <Link to="/">
               {isHomePage ? (
-                <img src={logo} className={styles.logo} />
+                <img src={logo} alt="TechZone para desktop" className={styles.logo} />
               ) : (
                 <picture>
                   <source srcSet={mobileLogo} media="(max-width: 768px)" />
-                  <img src={logo} className={styles.logo} />
+                  <img src={logo} alt="TechZone para celular" className={styles.logo} />
                 </picture>
               )}
             </Link>

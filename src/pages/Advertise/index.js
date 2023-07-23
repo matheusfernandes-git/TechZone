@@ -20,7 +20,7 @@ export default function Advertise() {
     state.categories.map(({ nome, id }) => ({ nome, id }))
   );
 
-  // useFetchData();
+  useFetchData();
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     defaultValues: {

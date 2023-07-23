@@ -30,6 +30,7 @@ const itemsSlice = createSlice({
     changeItem: (state, { payload }) => {
       state.map((item) => {
         if (item.id === payload.id) item.titulo = payload.item.title;
+        return item;
       });
     },
   },
