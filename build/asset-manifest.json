@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cbfd4687.css",
+    "main.js": "/static/js/main.cccd921c.js",
+    "static/media/fundo1.jpg": "/static/media/fundo1.99a154d31a607fd21d9e.jpg",
+    "static/media/gamer1.jpg": "/static/media/gamer1.7ca58615676c2c4a66be.jpg",
+    "static/media/logo.png": "/static/media/logo.669d0a119117f28a50ab.png",
+    "static/media/mobileLogo.png": "/static/media/mobileLogo.2564a5398c5137b2437c.png",
+    "index.html": "/index.html",
+    "main.cbfd4687.css.map": "/static/css/main.cbfd4687.css.map",
+    "main.cccd921c.js.map": "/static/js/main.cccd921c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbfd4687.css",
+    "static/js/main.cccd921c.js"
+  ]
+}
