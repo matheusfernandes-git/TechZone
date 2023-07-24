@@ -15,4 +15,4 @@
    
    So, if you're interested, check it out! 🙂
    
-https://porsche-model.vercel.app
+https://tech-zone-vert.vercel.app/
