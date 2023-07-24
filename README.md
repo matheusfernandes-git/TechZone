@@ -1,5 +1,5 @@
 <h1>TechZone</h1>
-<p>In this project i created a ecommerce website, called TechZone. In it you can access some categories about technology produts, you can favorite these products, add to cart. You can also andvertise your own product on the advertise page filling out a form. In the cart you can add your delivery address, choose a payment method, you can also decide how many products you are going to buy.</p>
+<p>In this project i created a ecommerce website, called TechZone. In it you can access some categories about technology produts, you can favorite these products, add to cart. You can also advertise your own product on the advertise page filling out a form. In the cart you can add your delivery address, choose a payment method, you can also decide how many products you are going to buy.</p>
 
 <h2>Tecnologies used:</h2>
 <table>
