@@ -27,17 +27,7 @@ const amountProps = {
 };
 
 export default function Item(props) {
-  console.log("Item Props:", props);
-  const { titulo, foto, preco, favorito, id, cart, amount, novo } =
-    props;
-  // console.log("titulo:", titulo);
-  // console.log("foto:", foto);
-  // console.log("preco:", preco);
-  // console.log("favorito:", favorito);
-  // console.log("id:", id);
-  // console.log("cart:", cart);
-  // console.log("amount:", amount);
-  // console.log("novo:", novo);
+  const { titulo, foto, preco, favorito, id, cart, amount, novo } = props;
   const [editMode, setEditMode] = useState(false);
   const [newTitle, setNewTitle] = useState(titulo);
   const dispatch = useDispatch();

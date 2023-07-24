@@ -32,12 +32,14 @@ export default function Cart() {
     const regExp = new RegExp(state.search, "i");
     const cartReduce = state.cart.reduce((items, itemInCart) => {
       const item = state.items.find((item) => item.id === itemInCart.id);
-      total += item.preco * itemInCart.amount;
-      if (item.titulo.match(regExp)) {
-        items.push({
-          ...item,
-          amount: itemInCart.amount,
-        });
+      if (item) {
+        total += (item.preco ?? 0) * itemInCart.amount; // Usar 0 como valor padrão para o preço se for indefinido
+        if (item.titulo.match(regExp)) {
+          items.push({
+            ...item,
+            amount: itemInCart.amount,
+          });
+        }
       }
       return items;
     }, []);
