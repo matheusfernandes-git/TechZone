@@ -3,7 +3,7 @@ import styles from "./Cart.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import Item from "components/Item";
 import { changeCart, resetCart } from "store/reducers/cart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import { TfiMoney } from "react-icons/tfi";
@@ -24,7 +24,6 @@ export default function Cart() {
   const dispatch = useDispatch();
   const [completed, setCompleted] = useState(false);
   const [formValues, setFormValues] = useState({});
-  const [paymentError, setPaymentError] = useState();
   const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
   const { cart, totalItens, totalFrete } = useSelector((state) => {
     let total = 0;
@@ -33,7 +32,7 @@ export default function Cart() {
     const cartReduce = state.cart.reduce((items, itemInCart) => {
       const item = state.items.find((item) => item.id === itemInCart.id);
       if (item) {
-        total += (item.preco ?? 0) * itemInCart.amount; // Usar 0 como valor padrão para o preço se for indefinido
+        total += item.preco * itemInCart.amount;
         if (item.titulo.match(regExp)) {
           items.push({
             ...item,
@@ -56,31 +55,25 @@ export default function Cart() {
     reset,
   } = useForm({});
 
+  //buscando os dados
   useFetchData();
 
-  const updateCartLocalStorage = (cartItems) => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  };
-
-  const handleUpdateCart = (updatedCart) => {
-    dispatch(changeCart(updatedCart));
-  };
+  //adicionando os itens do carrinho no localStorage.
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+  }, [cart]);
 
   const handleFormsSubmit = (data) => {
-    if (!data.paymentOption) {
-      setPaymentError("Escolha uma opção de pagamento");
-      return;
-    }
     setFormValues(data);
     console.log(data);
     dispatch(resetCart());
     setCompleted(!completed);
     reset();
-    updateCartLocalStorage([]);
   };
 
   const handlePaymentOptionChange = (event) => {
     setSelectedPaymentOption(event.target.value);
+    console.log(selectedPaymentOption);
   };
 
   const divisionOptions = [
@@ -398,12 +391,7 @@ export default function Cart() {
         {!completed && cart.length > 0 && (
           <div className={styles.carrinho}>
             {cart.map((item) => (
-              <Item
-                updateCart={handleUpdateCart}
-                key={item.id}
-                {...item}
-                cart
-              />
+              <Item key={item.id} {...item} cart />
             ))}
             <div className={styles.total}>
               <strong className={styles.totalTitulo}>Resumo da compra</strong>

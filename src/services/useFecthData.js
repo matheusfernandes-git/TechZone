@@ -1,4 +1,3 @@
-// services/useFetchData.js
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchCategories } from "store/reducers/categories";

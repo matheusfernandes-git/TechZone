@@ -21,7 +21,6 @@ const itemsSlice = createSlice({
     },
     addNewItem: (state, { payload }) => {
       state.push({ ...payload, id: uuid() });
-      console.log(payload);
     },
     deleteItem: (state, { payload }) => {
       const index = state.findIndex((item) => item.id === payload);

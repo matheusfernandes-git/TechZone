@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form"; //react form library
 import { addNewItem } from "store/reducers/items";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "components/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useFetchData from "services/useFecthData";
 
 export default function Advertise() {
@@ -22,14 +22,39 @@ export default function Advertise() {
 
   useFetchData();
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
     defaultValues: {
       categoria: categoryName,
     },
   });
 
+  const addNewItemInCart = (itemToAdd) => {
+    const cartItemsFromLocalStorage =
+      JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existItem = cartItemsFromLocalStorage.find(
+      (item) => item.id === itemToAdd.id
+    );
+    if (existItem) {
+      existItem.amount += itemToAdd.amount;
+    } else {
+      cartItemsFromLocalStorage.push(itemToAdd);
+    }
+
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(cartItemsFromLocalStorage)
+    );
+    console.log(cartItemsFromLocalStorage);
+  };
+
   const registerProduct = (product) => {
     const newItem = { ...product, novo: true };
+    addNewItemInCart(newItem);
     dispatch(addNewItem(newItem));
     reset();
     setRegisterBtn(false);

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+//o estado inicial será os itens que foram guardados no localStorage, na página cart.
+const initialState = JSON.parse(localStorage.getItem("cartItems")) || [];
 
 const cartSlice = createSlice({
   name: "cart",

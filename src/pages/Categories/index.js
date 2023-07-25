@@ -21,10 +21,6 @@ export default function Categories() {
     };
   });
 
-  const teste = () => {
-    console.log(items);
-  }
-
   return (
     <div>
       <Header
@@ -37,7 +33,7 @@ export default function Categories() {
           Quero anunciar
         </Button>
       </Header>
-      <div onClick={teste} className={styles.items}>
+      <div className={styles.items}>
         {items?.map((item) => (
           <Item key={item.id} {...item} preco={item?.preco || 0} /> 
         ))}
