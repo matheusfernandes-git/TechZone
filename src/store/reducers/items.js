@@ -1,10 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import itemsService from "services/items";
+import newItemService from "services/newItem";
 import { v4 as uuid } from "uuid";
 
 export const searchItems = createAsyncThunk(
   "itens/buscar",
   itemsService.search
+);
+
+export const deleteNewItem = createAsyncThunk(
+  "itens/delete",
+  newItemService.delete
 );
 
 const initialState = [];

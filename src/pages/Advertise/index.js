@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Input from "components/Input";
 import { useEffect, useState } from "react";
 import useFetchData from "services/useFecthData";
+import newItemService from "services/newItem";
 
 export default function Advertise() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function Advertise() {
   const { categoryName = "" } = useParams();
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
   const [showRegisterBtn, setRegisterBtn] = useState(true);
+  const { search } = newItemService;
   const categories = useSelector((state) =>
     state.categories.map(({ nome, id }) => ({ nome, id }))
   );
@@ -33,28 +35,9 @@ export default function Advertise() {
     },
   });
 
-  const addNewItemInCart = (itemToAdd) => {
-    const cartItemsFromLocalStorage =
-      JSON.parse(localStorage.getItem("cartItems")) || [];
-    const existItem = cartItemsFromLocalStorage.find(
-      (item) => item.id === itemToAdd.id
-    );
-    if (existItem) {
-      existItem.amount += itemToAdd.amount;
-    } else {
-      cartItemsFromLocalStorage.push(itemToAdd);
-    }
-
-    localStorage.setItem(
-      "cartItems",
-      JSON.stringify(cartItemsFromLocalStorage)
-    );
-    console.log(cartItemsFromLocalStorage);
-  };
-
-  const registerProduct = (product) => {
+  const registerProduct = async (product) => {
     const newItem = { ...product, novo: true };
-    addNewItemInCart(newItem);
+    await search(newItem);  //adiciona o item na API
     dispatch(addNewItem(newItem));
     reset();
     setRegisterBtn(false);

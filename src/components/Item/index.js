@@ -15,6 +15,7 @@ import { changeAmount, changeCart } from "store/reducers/cart";
 import classNames from "classnames";
 import { useState } from "react";
 import Input from "components/Input";
+import newItemService from "services/newItem";
 
 const iconeProps = {
   size: 24,
@@ -54,7 +55,11 @@ export default function Item(props) {
   };
 
   const handleDeleteItem = () => {
-    dispatch(deleteItem(id));
+    if (novo) {
+      newItemService.delete();
+    } else {
+      dispatch(deleteItem(id));
+    }
   };
 
   const editModeComponent = (

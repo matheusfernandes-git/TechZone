@@ -17,7 +17,7 @@ const cartSlice = createSlice({
             amount: 1,
           },
         ];
-      return state.filter((item) => item.id !== payload); //remove item do carrinho
+      return state.filter((item) => item.id !== payload);
     },
     changeAmount: (state, { payload }) => {
       state.map((itemInCart) => {
