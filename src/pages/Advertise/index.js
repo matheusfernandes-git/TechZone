@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form"; //react form library
 import { addNewItem } from "store/reducers/items";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "components/Input";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useFetchData from "services/useFecthData";
 import newItemService from "services/newItem";
 
@@ -17,7 +17,6 @@ export default function Advertise() {
   const { categoryName = "" } = useParams();
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
   const [showRegisterBtn, setRegisterBtn] = useState(true);
-  const { search } = newItemService;
   const categories = useSelector((state) =>
     state.categories.map(({ nome, id }) => ({ nome, id }))
   );
@@ -37,7 +36,7 @@ export default function Advertise() {
 
   const registerProduct = async (product) => {
     const newItem = { ...product, novo: true };
-    await search(newItem);  //adiciona o item na API
+    await newItemService.add(newItem);  //adiciona o item na API
     dispatch(addNewItem(newItem));
     reset();
     setRegisterBtn(false);

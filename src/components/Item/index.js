@@ -11,7 +11,7 @@ import {
 import { FaCartPlus } from "react-icons/fa";
 import { changeFavorite, changeItem, deleteItem } from "store/reducers/items";
 import { useDispatch, useSelector } from "react-redux";
-import { changeAmount, changeCart } from "store/reducers/cart";
+import { changeAmount, changeCart, deleteCartItem } from "store/reducers/cart";
 import classNames from "classnames";
 import { useState } from "react";
 import Input from "components/Input";
@@ -55,11 +55,7 @@ export default function Item(props) {
   };
 
   const handleDeleteItem = () => {
-    if (novo) {
-      newItemService.delete();
-    } else {
-      dispatch(deleteItem(id));
-    }
+    dispatch(deleteCartItem(id));
   };
 
   const editModeComponent = (
@@ -94,7 +90,7 @@ export default function Item(props) {
         [styles.itemNoCarrinho]: cart,
       })}
     >
-      {(novo || cart) && (
+      {cart && (
         <AiFillCloseCircle
           {...iconeProps}
           className={`${styles.acao} ${styles["item-deletar"]}`}

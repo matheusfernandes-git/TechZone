@@ -1,16 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import itemsService from "services/items";
-import newItemService from "services/newItem";
 import { v4 as uuid } from "uuid";
 
 export const searchItems = createAsyncThunk(
   "itens/buscar",
   itemsService.search
-);
-
-export const deleteNewItem = createAsyncThunk(
-  "itens/delete",
-  newItemService.delete
 );
 
 const initialState = [];
@@ -28,10 +22,6 @@ const itemsSlice = createSlice({
     addNewItem: (state, { payload }) => {
       state.push({ ...payload, id: uuid() });
     },
-    deleteItem: (state, { payload }) => {
-      const index = state.findIndex((item) => item.id === payload);
-      state.splice(index, 1);
-    },
     changeItem: (state, { payload }) => {
       state.map((item) => {
         if (item.id === payload.id) item.titulo = payload.item.title;
@@ -46,7 +36,7 @@ const itemsSlice = createSlice({
   },
 });
 
-export const { changeFavorite, addNewItem, changeItem, deleteItem } =
+export const { changeFavorite, addNewItem, changeItem } =
   itemsSlice.actions;
 
 export default itemsSlice.reducer;

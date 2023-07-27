@@ -65,7 +65,6 @@ export default function Cart() {
 
   const handleFormsSubmit = (data) => {
     setFormValues(data);
-    console.log(data);
     dispatch(resetCart());
     setCompleted(!completed);
     reset();
