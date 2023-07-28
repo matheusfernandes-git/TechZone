@@ -13,7 +13,7 @@ import items, { changeFavorite, changeItem } from "store/reducers/items";
 import { useDispatch, useSelector } from "react-redux";
 import { changeAmount, changeCart, deleteCartItem } from "store/reducers/cart";
 import classNames from "classnames";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Input from "components/Input";
 import newItemService from "services/newItem";
 
@@ -38,6 +38,7 @@ export default function Item(props) {
   );
 
   const handleFavorite = () => {
+    console.log(id);
     dispatch(changeFavorite(id));
   };
 
@@ -56,21 +57,21 @@ export default function Item(props) {
   };
 
   const handleDeleteItem = async () => {
-    dispatch(deleteCartItem(id));
-    // if (novo) {
-    //   await newItemService.delete(id);
-    //   dispatch(deleteCartItem(id));
-    // } else {
-    //   dispatch(deleteCartItem(id));
-    // }
+    if (novo) {
+      await newItemService.delete(id);
+      dispatch(deleteCartItem(id));
+    } else {
+      dispatch(deleteCartItem(id));
+    }
   };
 
   const editNewItem = async () => {
-    await newItemService.edit(id, newTitle, newPrice);
+    const itemId = id;
+    await newItemService.edit(itemId, newTitle, newPrice);
     setEditMode(false);
     dispatch(
       changeItem({
-        id: id,
+        id: itemId,
         item: { title: newTitle, price: newPrice },
       })
     );

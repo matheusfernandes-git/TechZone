@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import itemsService from "services/items";
-import { v4 as uuid } from "uuid";
 
 export const searchItems = createAsyncThunk(
   "itens/buscar",
@@ -20,7 +19,7 @@ const itemsSlice = createSlice({
       });
     },
     addNewItem: (state, { payload }) => {
-      state.push({ ...payload, id: uuid() });
+      state.push({ ...payload });
     },
     changeItem: (state, { payload }) => {
       state.map((item) => {

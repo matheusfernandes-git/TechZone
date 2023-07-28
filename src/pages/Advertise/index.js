@@ -10,17 +10,20 @@ import Input from "components/Input";
 import { useState } from "react";
 import useFetchData from "services/useFecthData";
 import newItemService from "services/newItem";
+import { v4 as uuid } from "uuid";
 
-export default function Advertise(props) {
+export default function Advertise() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { categoryName = "" } = useParams();
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
   const [showRegisterBtn, setRegisterBtn] = useState(true);
-  const { id } = props;
-  const categories = useSelector((state) =>
-    state.categories.map(({ nome, id }) => ({ nome, id }))
-  );
+  const { categories, itemId } = useSelector((state) => {
+    return {
+      categories: state.categories.map(({ nome, id }) => ({ nome, id })),
+      itemId: state.items.length > 0 ? uuid() : 1,
+    };
+  });
 
   useFetchData();
 
@@ -36,9 +39,9 @@ export default function Advertise(props) {
   });
 
   const registerProduct = async (product) => {
-    const newItem = { ...product, novo: true };
+    const newItem = { ...product, novo: true, id: itemId };
     await newItemService.add(newItem); //adiciona o item na API
-    dispatch(addNewItem(newItem));
+    dispatch(addNewItem(newItem));  //adiciona no estado do redux
     reset();
     setRegisterBtn(false);
     setShowSuccessMsg(true);

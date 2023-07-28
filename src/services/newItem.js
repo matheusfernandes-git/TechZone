@@ -13,8 +13,8 @@ const newItemService = {
   edit: async (id, newTitle, newPrice) => {
     try {
       const response = await instance.put(`/itens/${id}`, {
-        titulo: newTitle,
-        preco: newPrice,
+        title: newTitle,
+        price: newPrice,
       });
       return response.data;
     } catch (error) {
