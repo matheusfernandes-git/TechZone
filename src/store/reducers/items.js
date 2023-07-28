@@ -24,7 +24,10 @@ const itemsSlice = createSlice({
     },
     changeItem: (state, { payload }) => {
       state.map((item) => {
-        if (item.id === payload.id) item.titulo = payload.item.title;
+        if (item.id === payload.id) {
+          item.titulo = payload.item.title;
+          item.preco = payload.item.price;
+        }
         return item;
       });
     },
@@ -36,7 +39,6 @@ const itemsSlice = createSlice({
   },
 });
 
-export const { changeFavorite, addNewItem, changeItem } =
-  itemsSlice.actions;
+export const { changeFavorite, addNewItem, changeItem } = itemsSlice.actions;
 
 export default itemsSlice.reducer;

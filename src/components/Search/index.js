@@ -15,7 +15,7 @@ export default function Search() {
     <div className={styles.busca}>
       <input
         className={styles.input}
-        placeholder="O que você procura?"
+        placeholder="Buscar"
         value={search}
         onChange={(e) => dispatch(changeSearch(e.target.value))}
       />

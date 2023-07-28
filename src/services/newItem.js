@@ -7,17 +7,30 @@ const newItemService = {
       return response.data;
     } catch (error) {
       console.error("Erro ao adicionar item:", error);
+      throw error;
     }
   },
-
-  // delete: async (id) => {
-  //   try {
-  //     const response = await instance.delete(`/itens/${id}`);
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error("Erro ao deletar item:", error);
-  //   }
-  // },
+  edit: async (id, newTitle, newPrice) => {
+    try {
+      const response = await instance.put(`/itens/${id}`, {
+        titulo: newTitle,
+        preco: newPrice,
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao editar item:", error);
+      throw error;
+    }
+  },
+  delete: async (id) => {
+    try {
+      const response = await instance.delete(`/itens/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao deletar item:", error);
+      throw error;
+    }
+  },
 };
 
 export default newItemService;

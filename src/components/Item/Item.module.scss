@@ -50,11 +50,6 @@
     justify-content: center;
     width: 170px;
   }
-  .item-favorite{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
   .quantidade{
     font-weight: bold;
   }
@@ -75,7 +70,7 @@
   }
   @media(max-width: 280px){
     width: 250px;
-    .imagem {
+    &-imagem {
       width: 240px;
     }
     .preco{

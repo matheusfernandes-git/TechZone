@@ -9,11 +9,11 @@ import {
   AiFillCloseCircle,
 } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
-import { changeFavorite, changeItem, deleteItem } from "store/reducers/items";
+import items, { changeFavorite, changeItem } from "store/reducers/items";
 import { useDispatch, useSelector } from "react-redux";
 import { changeAmount, changeCart, deleteCartItem } from "store/reducers/cart";
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "components/Input";
 import newItemService from "services/newItem";
 
@@ -31,6 +31,7 @@ export default function Item(props) {
   const { titulo, foto, preco, favorito, id, cart, amount, novo } = props;
   const [editMode, setEditMode] = useState(false);
   const [newTitle, setNewTitle] = useState(titulo);
+  const [newPrice, setNewPrice] = useState(preco);
   const dispatch = useDispatch();
   const isInCart = useSelector((state) =>
     state.cart.some((itemInCart) => itemInCart.id === id)
@@ -54,23 +55,32 @@ export default function Item(props) {
     dispatch(changeAmount({ id, amount: +1 }));
   };
 
-  const handleDeleteItem = () => {
+  const handleDeleteItem = async () => {
     dispatch(deleteCartItem(id));
+    // if (novo) {
+    //   await newItemService.delete(id);
+    //   dispatch(deleteCartItem(id));
+    // } else {
+    //   dispatch(deleteCartItem(id));
+    // }
+  };
+
+  const editNewItem = async () => {
+    await newItemService.edit(id, newTitle, newPrice);
+    setEditMode(false);
+    dispatch(
+      changeItem({
+        id: id,
+        item: { title: newTitle, price: newPrice },
+      })
+    );
   };
 
   const editModeComponent = (
     <>
       {editMode ? (
         <AiOutlineCheck
-          onClick={() => {
-            setEditMode(false);
-            dispatch(
-              changeItem({
-                id: id,
-                item: { title: newTitle },
-              })
-            );
-          }}
+          onClick={editNewItem}
           {...iconeProps}
           className={styles.acao}
         />
@@ -90,7 +100,7 @@ export default function Item(props) {
         [styles.itemNoCarrinho]: cart,
       })}
     >
-      {cart && (
+      {(novo || cart) && (
         <AiFillCloseCircle
           {...iconeProps}
           className={`${styles.acao} ${styles["item-deletar"]}`}
@@ -112,7 +122,18 @@ export default function Item(props) {
           )}
         </div>
         <div className={styles.info}>
-          <div className={styles.preco}>R$ ${preco.toFixed(2)}</div>
+          <div className={styles.preco}>
+            {editMode ? (
+              <Input
+                style={{ width: "140px" }}
+                type="number"
+                value={newPrice}
+                onChange={(e) => setNewPrice(parseFloat(e.target.value))}
+              />
+            ) : (
+              <>R$ ${preco.toFixed(2)}</>
+            )}
+          </div>
           <div className={styles.acoes}>
             <div className={styles.item_favorite}>
               {favorito ? (
