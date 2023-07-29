@@ -18,10 +18,9 @@ export default function Advertise() {
   const { categoryName = "" } = useParams();
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
   const [showRegisterBtn, setRegisterBtn] = useState(true);
-  const { categories, itemId } = useSelector((state) => {
+  const { categories } = useSelector((state) => {
     return {
       categories: state.categories.map(({ nome, id }) => ({ nome, id })),
-      itemId: state.items.length > 0 ? uuid() : 1,
     };
   });
 
@@ -39,9 +38,9 @@ export default function Advertise() {
   });
 
   const registerProduct = async (product) => {
-    const newItem = { ...product, novo: true, id: itemId };
+    const newItem = { ...product, novo: true };
     await newItemService.add(newItem); //adiciona o item na API
-    dispatch(addNewItem(newItem));  //adiciona no estado do redux
+    dispatch(addNewItem(newItem)); //adiciona no estado do redux
     reset();
     setRegisterBtn(false);
     setShowSuccessMsg(true);

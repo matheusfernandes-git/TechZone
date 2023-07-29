@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import itemsService from "services/items";
+import { v4 as uuid } from "uuid";
+import produce from 'immer';
 
 export const searchItems = createAsyncThunk(
   "itens/buscar",
@@ -19,11 +21,15 @@ const itemsSlice = createSlice({
       });
     },
     addNewItem: (state, { payload }) => {
-      state.push({ ...payload });
+      state.push({ ...payload, id: uuid() });
     },
-    deleteItem: (state, { ...payload }) => {
-      const index = state.findIndex((item) => item.id === payload);
-      state.splice(index, 1);
+    deleteItem: (state, { payload }) => {
+      return state.reduce((acc, item) => {
+        if (item.id !== payload) {
+          acc.push(item);
+        }
+        return acc;
+      }, []);
     },
     changeItem: (state, { payload }) => {
       state.map((item) => {

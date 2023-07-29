@@ -57,15 +57,16 @@ export default function Item(props) {
 
   const handleDeleteItem = async () => {
     if (novo && !cart) {
+      console.log(id);
       await newItemService.delete(id);
       dispatch(deleteItem(id));
+      console.log(id);
     } else {
       dispatch(deleteCartItem(id));
     }
   };
 
   const editNewItem = async () => {
-    // const itemId = id;
     await newItemService.edit(id, newTitle, newPrice);
     setEditMode(false);
     dispatch(
