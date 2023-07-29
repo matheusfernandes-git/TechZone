@@ -74,8 +74,6 @@ export default function Cart() {
     console.log(selectedPaymentOption);
   };
 
-  export const totalFreteValue = totalFrete; 
-  
   const divisionOptions = [
     {
       option: `À vista - R$ ${totalFrete.toFixed(2)}`,
