@@ -321,6 +321,9 @@
     }
   }
   @media(max-width: 485px){
+    .withoutProduct{
+      padding-bottom: 50px;
+    }
     .total{
       flex-direction: column;
     }
