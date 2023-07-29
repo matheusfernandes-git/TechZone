@@ -13,6 +13,7 @@ import Input from "components/Input";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import useFetchData from "services/useFecthData";
+import { saveCartToLocalStorage } from "utils/cartItems";
 
 const iconsProps = {
   color: "#FF6500",
@@ -59,9 +60,7 @@ export default function Cart() {
   useFetchData();
 
   //adicionando os itens do carrinho no localStorage.
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cart));
-  }, [cart]);
+  saveCartToLocalStorage(cart);
 
   const handleFormsSubmit = (data) => {
     setFormValues(data);

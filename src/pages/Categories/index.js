@@ -5,11 +5,12 @@ import styles from "./categories.module.scss";
 import Item from "components/Item";
 import Button from "components/Button";
 import useFetchData from "services/useFecthData";
+import { saveCartToLocalStorage } from "utils/cartItems";
 
 export default function Categories() {
   const { categoryName } = useParams();
   const navigate = useNavigate();
-  const { categories, items } = useSelector((state) => {
+  const { categories, items, cart } = useSelector((state) => {
     const regExp = new RegExp(state.search, "i"); //filtrando no campo de busca
     return {
       categories:
@@ -17,10 +18,15 @@ export default function Categories() {
       items: state.items.filter(
         (item) => item.categoria === categoryName && item.titulo.match(regExp)
       ),
+      cart: state.cart,
     };
   });
+
   //buscando dados
   useFetchData();
+
+  //adicionando os itens do carrinho no localStorage.
+  saveCartToLocalStorage(cart);
 
   return (
     <div>

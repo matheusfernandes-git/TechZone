@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getCartFromLocalStorage } from "utils/cartItems";
 
 //o estado inicial será os itens que foram guardados no localStorage, na página cart.
-const initialState = JSON.parse(localStorage.getItem("cartItems")) || [];
+const initialState = getCartFromLocalStorage();
 
 const cartSlice = createSlice({
   name: "cart",
@@ -33,5 +34,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { changeCart, changeAmount, resetCart, deleteCartItem  } = cartSlice.actions;
+export const { changeCart, changeAmount, resetCart, deleteCartItem } =
+  cartSlice.actions;
 export default cartSlice.reducer;

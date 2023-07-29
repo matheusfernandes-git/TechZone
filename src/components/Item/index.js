@@ -9,7 +9,7 @@ import {
   AiFillCloseCircle,
 } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
-import items, { changeFavorite, changeItem } from "store/reducers/items";
+import { changeFavorite, changeItem, deleteItem } from "store/reducers/items";
 import { useDispatch, useSelector } from "react-redux";
 import { changeAmount, changeCart, deleteCartItem } from "store/reducers/cart";
 import classNames from "classnames";
@@ -38,7 +38,6 @@ export default function Item(props) {
   );
 
   const handleFavorite = () => {
-    console.log(id);
     dispatch(changeFavorite(id));
   };
 
@@ -57,21 +56,21 @@ export default function Item(props) {
   };
 
   const handleDeleteItem = async () => {
-    if (novo) {
+    if (novo && !cart) {
       await newItemService.delete(id);
-      dispatch(deleteCartItem(id));
+      dispatch(deleteItem(id));
     } else {
       dispatch(deleteCartItem(id));
     }
   };
 
   const editNewItem = async () => {
-    const itemId = id;
-    await newItemService.edit(itemId, newTitle, newPrice);
+    // const itemId = id;
+    await newItemService.edit(id, newTitle, newPrice);
     setEditMode(false);
     dispatch(
       changeItem({
-        id: itemId,
+        id: id,
         item: { title: newTitle, price: newPrice },
       })
     );

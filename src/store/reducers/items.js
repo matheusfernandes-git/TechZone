@@ -21,6 +21,10 @@ const itemsSlice = createSlice({
     addNewItem: (state, { payload }) => {
       state.push({ ...payload });
     },
+    deleteItem: (state, { ...payload }) => {
+      const index = state.findIndex((item) => item.id === payload);
+      state.splice(index, 1);
+    },
     changeItem: (state, { payload }) => {
       state.map((item) => {
         if (item.id === payload.id) {
@@ -38,6 +42,7 @@ const itemsSlice = createSlice({
   },
 });
 
-export const { changeFavorite, addNewItem, changeItem } = itemsSlice.actions;
+export const { changeFavorite, addNewItem, deleteItem, changeItem } =
+  itemsSlice.actions;
 
 export default itemsSlice.reducer;
