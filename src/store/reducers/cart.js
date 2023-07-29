@@ -8,7 +8,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    changeCart: (state, { payload }) => {
+    changeCart: (state, { payload }, category) => {
       const haveItem = state.some((item) => item.id === payload);
       if (!haveItem)
         return [
@@ -16,6 +16,7 @@ const cartSlice = createSlice({
           {
             id: payload,
             amount: 1,
+            categoria: category
           },
         ];
       return state.filter((item) => item.id !== payload);

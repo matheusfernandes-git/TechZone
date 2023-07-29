@@ -13,9 +13,11 @@ import { changeFavorite, changeItem, deleteItem } from "store/reducers/items";
 import { useDispatch, useSelector } from "react-redux";
 import { changeAmount, changeCart, deleteCartItem } from "store/reducers/cart";
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "components/Input";
 import newItemService from "services/newItem";
+import { useParams } from "react-router-dom";
+import itemsService from "services/items";
 
 const iconeProps = {
   size: 24,
@@ -28,16 +30,29 @@ const amountProps = {
 };
 
 export default function Item(props) {
-  const { titulo, foto, preco, favorito, id, cart, amount, novo } = props;
+  const { titulo, foto, preco, favorito, id, cart, amount, novo, categoria } = props;
   const [editMode, setEditMode] = useState(false);
   const [newTitle, setNewTitle] = useState(titulo);
   const [newPrice, setNewPrice] = useState(preco);
+  const { categoryName } = useParams();
   const dispatch = useDispatch();
   const isInCart = useSelector((state) =>
     state.cart.some((itemInCart) => itemInCart.id === id)
   );
 
-  const handleFavorite = () => {
+
+  const handleFavorite = async () => {
+    const updateItem = {
+      id: id,
+      titulo: titulo,
+      preco: preco,
+      categoria: categoryName || categoria ,
+      foto: foto,
+      favorito: !favorito,
+      novo: novo,
+    };
+    //atualizando o status de favorito na api
+    await itemsService.updateFavorite(id, updateItem);
     dispatch(changeFavorite(id));
   };
 
@@ -57,17 +72,24 @@ export default function Item(props) {
 
   const handleDeleteItem = async () => {
     if (novo && !cart) {
-      console.log(id);
       await newItemService.delete(id);
       dispatch(deleteItem(id));
-      console.log(id);
     } else {
       dispatch(deleteCartItem(id));
     }
   };
 
   const editNewItem = async () => {
-    await newItemService.edit(id, newTitle, newPrice);
+    const updateItem = {
+      id: id,
+      titulo: newTitle,
+      preco: newPrice,
+      categoria: categoryName,
+      foto: foto,
+      favorito: favorito,
+      novo: novo,
+    };
+    await newItemService.edit(id, updateItem);
     setEditMode(false);
     dispatch(
       changeItem({

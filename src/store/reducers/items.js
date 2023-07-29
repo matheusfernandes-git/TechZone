@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import itemsService from "services/items";
 import { v4 as uuid } from "uuid";
-import produce from 'immer';
 
 export const searchItems = createAsyncThunk(
   "itens/buscar",

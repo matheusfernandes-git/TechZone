@@ -10,12 +10,9 @@ const newItemService = {
       throw error;
     }
   },
-  edit: async (id, newTitle, newPrice) => {
+  edit: async (id, updateItem) => {
     try {
-      const response = await instance.put(`/itens/${id}`, {
-        title: newTitle,
-        price: newPrice,
-      });
+      const response = await instance.put(`/itens/${id}`, updateItem);
       return response.data;
     } catch (error) {
       console.error("Erro ao editar item:", error);

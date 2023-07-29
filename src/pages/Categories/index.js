@@ -40,7 +40,7 @@ export default function Categories() {
           Quero anunciar
         </Button>
       </Header>
-      <div className={styles.items}>
+      <div onClick={() => console.log(items)} className={styles.items}>
         {items?.map((item) => (
           <Item key={item.id} {...item} preco={item?.preco} />
         ))}
