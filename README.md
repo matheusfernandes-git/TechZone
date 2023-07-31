@@ -12,6 +12,7 @@
     <td>SCSS</td>
     <td>CSS</td>
     <td>HTML</td>
+    <td>AXIOS</td>
    </tr>
    </table>
    
