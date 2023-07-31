@@ -40,10 +40,15 @@
   .burguer, .menuBars{
     display: none;
   }
+  .containerLogo{
+    position: absolute;
+    left: 100px;
+  }
   .menuItems{
     display: flex;
     text-align: center;
     margin: auto;
+    margin-left: 185px;
     list-style: none;
   }
   .menuIcons{
