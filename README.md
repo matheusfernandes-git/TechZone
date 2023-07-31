@@ -10,6 +10,7 @@
     <td>React Router Dom</td>
     <td>React Hook Form</td>
     <td>SCSS</td>
+    <td>CSS</td>
     <td>HTML</td>
    </tr>
    </table>
