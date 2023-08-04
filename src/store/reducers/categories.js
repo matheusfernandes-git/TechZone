@@ -17,7 +17,7 @@ export const searchCategories = createAsyncThunk(
       toast({
         title: "Carregando categorias!",
         status: "loading",
-        duration: 8000,
+        duration: 4000,
         isClosable: true,
       });
     }
