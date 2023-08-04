@@ -7,6 +7,7 @@ import useFetchData from "services/useFecthData";
 
 export default function Home() {
   const navigate = useNavigate();
+
   useFetchData();
   return (
     <div>
