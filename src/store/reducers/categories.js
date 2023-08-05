@@ -13,14 +13,6 @@ export const searchCategories = createAsyncThunk(
   "categorias/buscar",
   async () => {
     const response = await categoriesService.search();
-    if (isFirstTimeVisit()) {
-      toast({
-        title: "Carregando categorias!",
-        status: "loading",
-        duration: 4000,
-        isClosable: true,
-      });
-    }
     return response;
   }
 );
@@ -30,6 +22,16 @@ const categoriesSlice = createSlice({
   initialState: [],
   extraReducers: (builder) => {
     builder
+    .addCase(searchCategories.pending, (state, { payload }) => {
+      if (isFirstTimeVisit()) {
+        toast({
+          title: "Carregando categorias!",
+          status: "loading",
+          duration: 4000,
+          isClosable: true,
+        });
+      }
+    })
     .addCase(searchCategories.fulfilled, (state, { payload }) => {
       if (isFirstTimeVisit()) {
         toast({
