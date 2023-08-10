@@ -10,7 +10,6 @@ import Input from "components/Input";
 import { useState } from "react";
 import useFetchData from "services/useFecthData";
 import newItemService from "services/newItem";
-import { v4 as uuid } from "uuid";
 
 export default function Advertise() {
   const dispatch = useDispatch();

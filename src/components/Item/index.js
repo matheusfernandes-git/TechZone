@@ -13,7 +13,7 @@ import { changeFavorite, changeItem, deleteItem } from "store/reducers/items";
 import { useDispatch, useSelector } from "react-redux";
 import { changeAmount, changeCart, deleteCartItem } from "store/reducers/cart";
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Input from "components/Input";
 import newItemService from "services/newItem";
 import { useParams } from "react-router-dom";
