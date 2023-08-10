@@ -27,7 +27,7 @@ const categoriesSlice = createSlice({
         toast({
           title: "Carregando categorias!",
           status: "loading",
-          duration: 4000,
+          duration: 6000,
           isClosable: true,
         });
       }
